@@ -1,13 +1,10 @@
 FROM lsiobase/alpine
-MAINTAINER sparklyballs
+MAINTAINER dewey
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
-LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-
-# package version
-ARG MEDIAINF_VER="0.7.90"
+LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # install runtime packages
 RUN \

@@ -1,23 +1,12 @@
-[linuxserverurl]: https://linuxserver.io
-[forumurl]: https://forum.linuxserver.io
-[ircurl]: https://www.linuxserver.io/irc/
-[podcasturl]: https://www.linuxserver.io/podcast/
+# dewey/docker-rutorrent
 
-[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
+Docker image based on https://github.com/linuxserver/docker-rutorrent and modified to make a few changes:
 
-The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io][forumurl]
-* [IRC][ircurl] on freenode at `#linuxserver.io`
-* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
-
-# linuxserver/rutorrent
-[![](https://images.microbadger.com/badges/version/linuxserver/rutorrent.svg)](https://microbadger.com/images/linuxserver/rutorrent "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/rutorrent.svg)](http://microbadger.com/images/linuxserver/rutorrent "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/rutorrent.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/rutorrent.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-rutorrent)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-rutorrent/)
-[hub]: https://hub.docker.com/r/linuxserver/rutorrent/
-
-Popular rtorrent client with a webui for ease of use. [Rutorrent](https://github.com/Novik/ruTorrent)
-
-[![rutorrent](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rutorrent.jpg)][rutorrenturl]
-[rutorrenturl]: https://github.com/Novik/ruTorrent
+- the rTorrent config more suitable for private trackers
+- follow my preferences for a folder structure (watch / incomplete / complete)
+- move torrents on completion
+- only install a small subset of ruTorrent plugins so the web interface gets unusably slow a bit later than usual
+- don't compile the `mediainfo` package
 
 ## Usage
 
@@ -34,7 +23,7 @@ linuxserver/rutorrent
 
 ## Parameters
 
-`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side. 
+`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
 For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
 So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
@@ -75,14 +64,14 @@ Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /
 
 ** The Port Assignments and configuration folder structure has been changed from the previous ubuntu based versions of this container and we recommend a clean install **
 
-Umask can be set in the /config/rtorrent/rtorrent.rc file by changing value in `system.umask.set` 
+Umask can be set in the /config/rtorrent/rtorrent.rc file by changing value in `system.umask.set`
 
 ## Info
 
 * Shell access whilst the container is running: `docker exec -it rutorrent /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f rutorrent`
 
-* container version number 
+* container version number
 
 `docker inspect -f '{{ index .Config.Labels "build_version" }}' rutorrent`
 
@@ -93,6 +82,7 @@ Umask can be set in the /config/rtorrent/rtorrent.rc file by changing value in `
 
 ## Versions
 
++ **20.11.29:** Remove mediainfo, tweak folder structure, revamp rtorrent config
 + **20.11.16:** Add php7-mbstring package, bump mediainfo to 0.7.90.
 + **14.10.16:** Add version layer information.
 + **04.10.16:** Remove redundant sessions folder.
