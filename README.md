@@ -10,16 +10,33 @@ Docker image based on https://github.com/linuxserver/docker-rutorrent and modifi
 
 ## Usage
 
+I use one container for every tracker so for a tracker called `xyz` it would look like that, to prevent port conflicts I just increment the last character of the external port. In that case it's set to `3`.
+
+
+### Create directory to store volumes
+
 ```
-docker create --name=rutorrent \
--v <path to data>:/config \
--v <path to downloads>:/downloads \
--e PGID=<gid> -e PUID=<uid> \
--e TZ=<timezone> \
--p 80:80 -p 5000:5000 \
--p 51413:51413 -p 6881:6881/udp \
-linuxserver/rutorrent
+mkdir -p /volume1/Archive/rtorrent/rtorrent-xyz /volume1/Archive/rtorrent/rtorrent-xyz/config && \
+chown -R dewey:users /volume1/Archive/rtorrent/rtorrent-xyz && \
+chmod -R 775 /volume1/Archive/rtorrent/rtorrent-xyz
 ```
+
+### Create docker container, make sure ports are not conflicting
+
+```
+docker create --name=rtorrent-xyz \
+-v /volume1/Archive/rtorrent/rtorrent-xyz/config:/config \
+-v /volume1/Archive/rtorrent/rtorrent-xyz:/downloads \
+-e PGID=100 -e PUID=1026 \
+-e TZ=Europe/Berlin \
+-p 8003:80 \
+-p 5003:5000 \
+-p 60003:51413 \
+-p 6003:6881/udp \
+tehwey/docker-rutorrent
+```
+
+Then just start the docker container as usual or, like in my case, through the Synology web interface.
 
 ## Parameters
 
