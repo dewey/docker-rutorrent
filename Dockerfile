@@ -12,7 +12,6 @@ RUN \
 	ca-certificates \
 	curl \
 	fcgi \
-	ffmpeg \
 	geoip \
 	gzip \
 	logrotate \
