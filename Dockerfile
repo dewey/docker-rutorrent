@@ -64,49 +64,48 @@ RUN \
 	/defaults/rutorrent-conf/users && \
 
 # install only rutorrent plugins needed
-rm -rf \
-  /usr/share/webapps/rutorrent/plugins/_getdir && \
-  /usr/share/webapps/rutorrent/plugins/_noty && \
-  /usr/share/webapps/rutorrent/plugins/_noty2 && \
-  /usr/share/webapps/rutorrent/plugins/_task && \
-  /usr/share/webapps/rutorrent/plugins/autotools && \
-  /usr/share/webapps/rutorrent/plugins/check_port && \
-  /usr/share/webapps/rutorrent/plugins/chunks && \
-  /usr/share/webapps/rutorrent/plugins/cookies && \
-  /usr/share/webapps/rutorrent/plugins/cpuload && \
-  /usr/share/webapps/rutorrent/plugins/create && \
-  /usr/share/webapps/rutorrent/plugins/data && \
-  /usr/share/webapps/rutorrent/plugins/datadir && \
-  /usr/share/webapps/rutorrent/plugins/diskspace && \
-  /usr/share/webapps/rutorrent/plugins/edit && \
-  # /usr/share/webapps/rutorrent/plugins/erasedata && \
-  /usr/share/webapps/rutorrent/plugins/extratio && \
-  /usr/share/webapps/rutorrent/plugins/extsearch && \
-  /usr/share/webapps/rutorrent/plugins/feeds && \
-  /usr/share/webapps/rutorrent/plugins/filedrop && \
-  # /usr/share/webapps/rutorrent/plugins/geoip && \
-  /usr/share/webapps/rutorrent/plugins/history && \
-  /usr/share/webapps/rutorrent/plugins/httprpc && \
-  /usr/share/webapps/rutorrent/plugins/ipad && \
-  /usr/share/webapps/rutorrent/plugins/loginmgr && \
-  /usr/share/webapps/rutorrent/plugins/lookat && \
-  /usr/share/webapps/rutorrent/plugins/mediainfo && \
-  /usr/share/webapps/rutorrent/plugins/ratio && \
-  /usr/share/webapps/rutorrent/plugins/retrackers && \
-  # /usr/share/webapps/rutorrent/plugins/rpc && \
-  /usr/share/webapps/rutorrent/plugins/rss && \
-  /usr/share/webapps/rutorrent/plugins/rssurlrewrite && \
-  /usr/share/webapps/rutorrent/plugins/rutracker_check && \
-  /usr/share/webapps/rutorrent/plugins/scheduler && \
-  /usr/share/webapps/rutorrent/plugins/screenshots && \
-  /usr/share/webapps/rutorrent/plugins/seedingtime && \
-  /usr/share/webapps/rutorrent/plugins/show_peers_like_wtorrent && \
-  # /usr/share/webapps/rutorrent/plugins/source && \
-  # /usr/share/webapps/rutorrent/plugins/theme && \
-  /usr/share/webapps/rutorrent/plugins/throttle && \
-  # /usr/share/webapps/rutorrent/plugins/tracklabels && \
-  /usr/share/webapps/rutorrent/plugins/trafic && \
-  /usr/share/webapps/rutorrent/plugins/unpack && \
+rm -rf /usr/share/webapps/rutorrent/plugins/_getdir \
+  /usr/share/webapps/rutorrent/plugins/_noty \
+  /usr/share/webapps/rutorrent/plugins/_noty2 \
+  /usr/share/webapps/rutorrent/plugins/_task \
+  /usr/share/webapps/rutorrent/plugins/autotools \
+  /usr/share/webapps/rutorrent/plugins/check_port \
+  /usr/share/webapps/rutorrent/plugins/chunks \
+  /usr/share/webapps/rutorrent/plugins/cookies \
+  /usr/share/webapps/rutorrent/plugins/cpuload \
+  /usr/share/webapps/rutorrent/plugins/create \
+  /usr/share/webapps/rutorrent/plugins/data \
+  /usr/share/webapps/rutorrent/plugins/datadir \
+  /usr/share/webapps/rutorrent/plugins/diskspace \
+  /usr/share/webapps/rutorrent/plugins/edit \
+  # /usr/share/webapps/rutorrent/plugins/erasedata \
+  /usr/share/webapps/rutorrent/plugins/extratio \
+  /usr/share/webapps/rutorrent/plugins/extsearch \
+  /usr/share/webapps/rutorrent/plugins/feeds \
+  /usr/share/webapps/rutorrent/plugins/filedrop \
+  # /usr/share/webapps/rutorrent/plugins/geoip \
+  /usr/share/webapps/rutorrent/plugins/history \
+  /usr/share/webapps/rutorrent/plugins/httprpc \
+  /usr/share/webapps/rutorrent/plugins/ipad \
+  /usr/share/webapps/rutorrent/plugins/loginmgr \
+  /usr/share/webapps/rutorrent/plugins/lookat \
+  /usr/share/webapps/rutorrent/plugins/mediainfo \
+  /usr/share/webapps/rutorrent/plugins/ratio \
+  /usr/share/webapps/rutorrent/plugins/retrackers \
+  # /usr/share/webapps/rutorrent/plugins/rpc \
+  /usr/share/webapps/rutorrent/plugins/rss \
+  /usr/share/webapps/rutorrent/plugins/rssurlrewrite \
+  /usr/share/webapps/rutorrent/plugins/rutracker_check \
+  /usr/share/webapps/rutorrent/plugins/scheduler \
+  /usr/share/webapps/rutorrent/plugins/screenshots \
+  /usr/share/webapps/rutorrent/plugins/seedingtime \
+  /usr/share/webapps/rutorrent/plugins/show_peers_like_wtorrent \
+  # /usr/share/webapps/rutorrent/plugins/source \
+  # /usr/share/webapps/rutorrent/plugins/theme \
+  /usr/share/webapps/rutorrent/plugins/throttle \
+  # /usr/share/webapps/rutorrent/plugins/tracklabels \
+  /usr/share/webapps/rutorrent/plugins/trafic \
+  /usr/share/webapps/rutorrent/plugins/unpack \
   /usr/share/webapps/rutorrent/plugins/xmpp && \
 
 # cleanup
