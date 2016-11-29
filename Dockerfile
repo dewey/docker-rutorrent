@@ -66,31 +66,51 @@ RUN \
  rm -rf \
 	/defaults/rutorrent-conf/users && \
 
-# compile mediainfo packages
- curl -o \
- /tmp/libmediainfo.tar.gz -L \
-	"http://mediaarea.net/download/binary/libmediainfo0/${MEDIAINF_VER}/MediaInfo_DLL_${MEDIAINF_VER}_GNU_FromSource.tar.gz" && \
- curl -o \
- /tmp/mediainfo.tar.gz -L \
-	"http://mediaarea.net/download/binary/mediainfo/${MEDIAINF_VER}/MediaInfo_CLI_${MEDIAINF_VER}_GNU_FromSource.tar.gz" && \
- mkdir -p \
-	/tmp/libmediainfo \
-	/tmp/mediainfo && \
- tar xf /tmp/libmediainfo.tar.gz -C \
-	/tmp/libmediainfo --strip-components=1 && \
- tar xf /tmp/mediainfo.tar.gz -C \
-	/tmp/mediainfo --strip-components=1 && \
-
- cd /tmp/libmediainfo && \
-	./SO_Compile.sh && \
- cd /tmp/libmediainfo/ZenLib/Project/GNU/Library && \
-	make install && \
- cd /tmp/libmediainfo/MediaInfoLib/Project/GNU/Library && \
-	make install && \
- cd /tmp/mediainfo && \
-	./CLI_Compile.sh && \
- cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
-	make install && \
+# install only rutorrent plugins needed
+rm -rf \
+  /usr/share/webapps/rutorrent/plugins/_getdir && \
+  /usr/share/webapps/rutorrent/plugins/_noty && \
+  /usr/share/webapps/rutorrent/plugins/_noty2 && \
+  /usr/share/webapps/rutorrent/plugins/_task && \
+  /usr/share/webapps/rutorrent/plugins/autotools && \
+  /usr/share/webapps/rutorrent/plugins/check_port && \
+  /usr/share/webapps/rutorrent/plugins/chunks && \
+  /usr/share/webapps/rutorrent/plugins/cookies && \
+  /usr/share/webapps/rutorrent/plugins/cpuload && \
+  /usr/share/webapps/rutorrent/plugins/create && \
+  /usr/share/webapps/rutorrent/plugins/data && \
+  /usr/share/webapps/rutorrent/plugins/datadir && \
+  /usr/share/webapps/rutorrent/plugins/diskspace && \
+  /usr/share/webapps/rutorrent/plugins/edit && \
+  # /usr/share/webapps/rutorrent/plugins/erasedata && \
+  /usr/share/webapps/rutorrent/plugins/extratio && \
+  /usr/share/webapps/rutorrent/plugins/extsearch && \
+  /usr/share/webapps/rutorrent/plugins/feeds && \
+  /usr/share/webapps/rutorrent/plugins/filedrop && \
+  # /usr/share/webapps/rutorrent/plugins/geoip && \
+  /usr/share/webapps/rutorrent/plugins/history && \
+  /usr/share/webapps/rutorrent/plugins/httprpc && \
+  /usr/share/webapps/rutorrent/plugins/ipad && \
+  /usr/share/webapps/rutorrent/plugins/loginmgr && \
+  /usr/share/webapps/rutorrent/plugins/lookat && \
+  /usr/share/webapps/rutorrent/plugins/mediainfo && \
+  /usr/share/webapps/rutorrent/plugins/ratio && \
+  /usr/share/webapps/rutorrent/plugins/retrackers && \
+  # /usr/share/webapps/rutorrent/plugins/rpc && \
+  /usr/share/webapps/rutorrent/plugins/rss && \
+  /usr/share/webapps/rutorrent/plugins/rssurlrewrite && \
+  /usr/share/webapps/rutorrent/plugins/rutracker_check && \
+  /usr/share/webapps/rutorrent/plugins/scheduler && \
+  /usr/share/webapps/rutorrent/plugins/screenshots && \
+  /usr/share/webapps/rutorrent/plugins/seedingtime && \
+  /usr/share/webapps/rutorrent/plugins/show_peers_like_wtorrent && \
+  # /usr/share/webapps/rutorrent/plugins/source && \
+  # /usr/share/webapps/rutorrent/plugins/theme && \
+  /usr/share/webapps/rutorrent/plugins/throttle && \
+  # /usr/share/webapps/rutorrent/plugins/tracklabels && \
+  /usr/share/webapps/rutorrent/plugins/trafic && \
+  /usr/share/webapps/rutorrent/plugins/unpack && \
+  /usr/share/webapps/rutorrent/plugins/xmpp && \
 
 # cleanup
  apk del --purge \
