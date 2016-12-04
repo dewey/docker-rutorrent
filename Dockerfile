@@ -1,5 +1,5 @@
 FROM lsiobase/alpine
-MAINTAINER dewey
+MAINTAINER dewey <mail@notmyhostna.me>
 
 # set version label
 ARG BUILD_DATE
@@ -74,7 +74,7 @@ rm -rf /usr/share/webapps/rutorrent/plugins/_getdir \
   /usr/share/webapps/rutorrent/plugins/cpuload \
   /usr/share/webapps/rutorrent/plugins/create \
   /usr/share/webapps/rutorrent/plugins/data \
-  /usr/share/webapps/rutorrent/plugins/datadir \
+  # /usr/share/webapps/rutorrent/plugins/datadir \
   /usr/share/webapps/rutorrent/plugins/diskspace \
   /usr/share/webapps/rutorrent/plugins/edit \
   # /usr/share/webapps/rutorrent/plugins/erasedata \
