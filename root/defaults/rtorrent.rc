@@ -15,8 +15,8 @@ session = /config/rtorrent/rtorrent_sess
 min_peers = 40
 max_peers = 1200
 max_uploads = 10
-download_rate = 0
-upload_rate = 1000
+download_rate = 2000
+upload_rate = 50
 
 # move download from incomplete directory to their respective complete directory
 system.method.set_key =event.download.finished,move_complete,"d.set_directory=$d.get_custom1= ;execute=mv,-u,$d.get_base_path=,$d.get_custom1="
