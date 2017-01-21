@@ -12,6 +12,7 @@ RUN \
 	ca-certificates \
 	curl \
 	fcgi \
+  git \
 	geoip \
 	gzip \
 	logrotate \
@@ -106,6 +107,9 @@ rm -rf /usr/share/webapps/rutorrent/plugins/_getdir \
   /usr/share/webapps/rutorrent/plugins/trafic \
   /usr/share/webapps/rutorrent/plugins/unpack \
   /usr/share/webapps/rutorrent/plugins/xmpp && \
+
+# get additional theme
+git clone git://github.com/phlooo/ruTorrent-MaterialDesign.git /usr/share/webapps/rutorrent/plugins/theme/themes/MaterialDesign && \
 
 # cleanup
  apk del --purge \
