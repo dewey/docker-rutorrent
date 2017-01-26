@@ -23,7 +23,7 @@ system.method.set_key =event.download.finished,move_complete,"d.set_directory=$d
 
 # set default watch directory / complete directory
 schedule = watch_directory,5,10,"load.start=/downloads/watch/*.torrent,d.set_custom1=/downloads/complete"
-
+schedule = watch_directory_paused,5,10,"load=/downloads/watch_paused/*.torrent,d.set_custom1=/downloads/complete"
 
 # every 30 seconds: stop torrents that have been deleted
 schedule = untied_directory,30,30,stop_untied=
