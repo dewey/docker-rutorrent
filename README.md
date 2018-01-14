@@ -1,3 +1,10 @@
+[linuxserverurl]: https://linuxserver.io
+[forumurl]: https://forum.linuxserver.io
+[ircurl]: https://www.linuxserver.io/irc/
+[podcasturl]: https://www.linuxserver.io/podcast/
+[appurl]: https://github.com/Novik/ruTorrent
+[hub]: https://hub.docker.com/r/linuxserver/rutorrent/
+
 # dewey/docker-rutorrent
 
 Docker image based on https://github.com/linuxserver/docker-rutorrent and modified to make a few changes:
@@ -9,9 +16,11 @@ Docker image based on https://github.com/linuxserver/docker-rutorrent and modifi
 - don't compile the `mediainfo` package
 
 ## Usage
+[![](https://images.microbadger.com/badges/version/linuxserver/rutorrent.svg)](https://microbadger.com/images/linuxserver/rutorrent "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/rutorrent.svg)](https://microbadger.com/images/linuxserver/rutorrent "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/rutorrent.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/rutorrent.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-rutorrent)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-rutorrent/)
 
 I use one container for every tracker so for a tracker called `xyz` it would look like that, to prevent port conflicts I just increment the last character of the external port. In that case it's set to `3`.
 
+[![rutorrent](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rutorrent.jpg)][appurl]
 
 ### Create directory to store volumes
 
@@ -83,6 +92,13 @@ Webui can be found at `<your-ip>:80` , configuration files for rtorrent are in /
 
 Umask can be set in the /config/rtorrent/rtorrent.rc file by changing value in `system.umask.set`
 
+If you are seeing this error `Caught internal_error: 'DhtRouter::get_tracker did not actually insert tracker.'.` , a possible fix is to disable dht in `/config/rtorrent/rtorrent.rc` by changing the following values.
+
+```shell
+dht = disable
+peer_exchange = no
+```
+
 ## Info
 
 * Shell access whilst the container is running: `docker exec -it rutorrent /bin/bash`
@@ -99,8 +115,16 @@ Umask can be set in the /config/rtorrent/rtorrent.rc file by changing value in `
 
 ## Versions
 
-+ **29.01.17:** Bump to alpine 3.5.
++ **08.12.17:** Rebase to alpine 3.7, add sox package.
++ **28.10.17:** Mediainfo moved from testing to community repo.
 + **20.11.29:** Remove mediainfo, tweak folder structure, revamp rtorrent config
++ **09.10.17:** Use repo version of mediainfo to shorten build time.
++ **28.05.17:** Fix permissions on secondary temp folder of nginx.
++ **26.05.17:** Rebase to alpine 3.6.
++ **03.05.17:** Fix log permissions.
++ **18.03.17:** Note in readme about disabling dht in some circumstances.
++ **24.02.17:** Patch a source file to quash rss https bug.
++ **29.01.17:** Rebase to alpine 3.5.
 + **20.11.16:** Add php7-mbstring package, bump mediainfo to 0.7.90.
 + **14.10.16:** Add version layer information.
 + **04.10.16:** Remove redundant sessions folder.
